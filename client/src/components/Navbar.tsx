@@ -30,7 +30,7 @@ export default function Navbar() {
                   <path d="M3 8L7 12L13 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <span className="font-semibold text-gray-900 text-[15px] tracking-tight">SkillHub</span>
+              <span className="font-semibold text-gray-900 text-[15px] tracking-tight">GeniusNexus</span>
             </Link>
 
             {/* Center Nav Links */}

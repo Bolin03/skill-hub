@@ -1,4 +1,4 @@
-// SkillHub Mock Data
+// GeniusNexus Mock Data
 // Design: Linear/Notion style - clean, minimal, professional
 
 export interface Skill {
@@ -53,7 +53,7 @@ export const MOCK_SKILLS: Skill[] = [
     longDescription: "Web Search Pro 是一个专为 Agent 设计的高性能网络搜索 Skill，支持 Google、Bing、DuckDuckGo 等多个搜索引擎并行查询，内置智能去重算法和相关性排序，可大幅提升 Agent 的信息获取效率。",
     tags: ["搜索", "网络", "信息获取"],
     category: "信息获取",
-    author: "SkillHub Team",
+    author: "GeniusNexus Team",
     authorAvatar: "https://api.dicebear.com/7.x/initials/svg?seed=ST&backgroundColor=3b82f6",
     version: "2.3.1",
     downloads: 48320,
@@ -78,7 +78,7 @@ export const MOCK_SKILLS: Skill[] = [
       ],
     },
     installSteps: [
-      "从 SkillHub 下载 skill 包",
+      "从 GeniusNexus 下载 skill 包",
       "解压到 ~/.agent/skills/ 目录",
       "运行 agent skill install web-search-pro",
       "在 agent 配置中启用该 skill",

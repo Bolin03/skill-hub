@@ -60,7 +60,7 @@ export default function Home() {
           </h1>
 
           <p className="text-lg text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed">
-            SkillHub 为 Agent 生态提供标准化、可复用的能力接入方式。
+            GeniusNexus 为 Agent 生态提供标准化、可复用的能力接入方式。
             <br className="hidden sm:block" />
             上传你的 Skill，让全球开发者使用。
           </p>
@@ -162,7 +162,7 @@ export default function Home() {
                 <h2 className="text-xl font-bold text-gray-900">Skill 上传与发布</h2>
               </div>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
-                将你开发的 Skill 分享给社区。支持拖拽上传、填写元信息，一键发布到 SkillHub 生态。
+                将你开发的 Skill 分享给社区。支持拖拽上传、填写元信息，一键发布到 GeniusNexus 生态。
               </p>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4 text-xs text-gray-400">

@@ -15,7 +15,7 @@ export default function Footer() {
                   <path d="M3 8L7 12L13 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <span className="font-semibold text-gray-900 text-[15px]">SkillHub</span>
+              <span className="font-semibold text-gray-900 text-[15px]">GeniusNexus</span>
             </div>
             <p className="text-xs text-gray-400 leading-relaxed">
               为 Agent 生态提供标准化、可复用的能力接入方式。
@@ -68,7 +68,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-gray-50 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-gray-400">© 2024 SkillHub. All rights reserved.</p>
+          <p className="text-xs text-gray-400">© 2024 GeniusNexus. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <span className="text-xs text-gray-300">|</span>
             <span className="text-xs text-gray-400 flex items-center gap-1">

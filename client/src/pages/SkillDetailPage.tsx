@@ -62,7 +62,7 @@ export default function SkillDetailPage() {
     toast.success(`已开始下载 ${skill.name} v${skill.version}`);
   };
 
-  const curlCommand = `curl -L https://skillhub.io/api/skills/${skill.id}/download -o ${skill.name.toLowerCase().replace(/\s+/g, '-')}.zip`;
+  const curlCommand = `curl -L https://geniusnexus.io/api/skills/${skill.id}/download -o ${skill.name.toLowerCase().replace(/\s+/g, '-')}.zip`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(curlCommand).then(() => {

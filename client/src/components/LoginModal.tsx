@@ -57,7 +57,7 @@ export default function LoginModal() {
             </svg>
           </div>
           <h2 className="text-2xl font-bold text-gray-900">欢迎回来</h2>
-          <p className="text-sm text-gray-500 mt-1">登录 SkillHub，探索 Agent 能力生态</p>
+          <p className="text-sm text-gray-500 mt-1">登录 GeniusNexus，探索 Agent 能力生态</p>
         </div>
 
         {/* Email Form */}
