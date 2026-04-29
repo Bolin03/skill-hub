@@ -1,5 +1,6 @@
 // Skill Detail Page
-// Design: Clean detail page with cover, metadata table, and tabbed content
+// Design: Clean detail page with 56×56 icon, metadata table, and tabbed content
+// Image spec: 56×56px rounded-square icon (no large cover banner)
 import { useState } from "react";
 import { useParams, useLocation } from "wouter";
 import { MOCK_SKILLS } from "@/lib/mockData";
@@ -88,22 +89,26 @@ export default function SkillDetailPage() {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Header Card */}
-        <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden mb-6 shadow-sm">
-          <div className="flex flex-col md:flex-row">
-            {/* Cover */}
-            <div className="md:w-72 h-48 md:h-auto flex-shrink-0 overflow-hidden">
+        {/* Header Card: icon (56×56) + info */}
+        <div className="bg-white rounded-2xl border border-gray-100 p-6 md:p-8 mb-6 shadow-sm">
+          {/* Top: icon + name + badges */}
+          <div className="flex items-start gap-5 mb-5">
+            {/* 56×56 rounded-square icon */}
+            <div
+              className="flex-shrink-0 overflow-hidden bg-gray-100 border border-gray-100"
+              style={{ width: 56, height: 56, borderRadius: 8 }}
+            >
               <img
                 src={skill.coverImage}
                 alt={skill.name}
-                className="w-full h-full object-cover"
+                style={{ width: 56, height: 56, objectFit: "cover" }}
               />
             </div>
 
-            {/* Info */}
-            <div className="flex-1 p-6 md:p-8">
-              {/* Category + Status */}
-              <div className="flex items-center gap-2 mb-3">
+            {/* Name + badges */}
+            <div className="flex-1 min-w-0">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{skill.name}</h1>
+              <div className="flex items-center gap-2">
                 <span className="px-2 py-0.5 bg-blue-50 text-blue-600 text-xs font-medium rounded-full">
                   {skill.category}
                 </span>
@@ -111,71 +116,70 @@ export default function SkillDetailPage() {
                   ✓ 已发布
                 </span>
               </div>
-
-              {/* Name */}
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{skill.name}</h1>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1.5 mb-3">
-                {skill.tags.map(tag => (
-                  <span key={tag} className="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded">
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* Description */}
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">{skill.longDescription}</p>
-
-              {/* Author */}
-              <div className="flex items-center gap-2 mb-6">
-                <img src={skill.authorAvatar} alt={skill.author} className="w-6 h-6 rounded-full" />
-                <span className="text-sm text-gray-500">by <span className="font-medium text-gray-700">{skill.author}</span></span>
-                <span className="text-gray-300">·</span>
-                <span className="text-sm text-gray-500">更新于 {skill.updatedAt}</span>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3">
-                <button
-                  onClick={handleDownload}
-                  className="flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-sm shadow-blue-200"
-                >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
-                  一键下载
-                </button>
-
-                <button
-                  onClick={handleLike}
-                  className={`flex items-center gap-2 px-4 py-2.5 border rounded-xl text-sm font-medium transition-all ${
-                    interaction.liked
-                      ? "border-red-200 bg-red-50 text-red-600"
-                      : "border-gray-200 text-gray-600 hover:border-red-200 hover:text-red-500"
-                  }`}
-                >
-                  <span className={`transition-transform duration-200 ${likeAnimating ? "scale-150" : "scale-100"}`}>
-                    {interaction.liked ? "❤️" : "🤍"}
-                  </span>
-                  {formatNumber(interaction.likes)}
-                </button>
-
-                <button
-                  onClick={handleFavorite}
-                  className={`flex items-center gap-2 px-4 py-2.5 border rounded-xl text-sm font-medium transition-all ${
-                    interaction.favorited
-                      ? "border-yellow-200 bg-yellow-50 text-yellow-600"
-                      : "border-gray-200 text-gray-600 hover:border-yellow-200 hover:text-yellow-500"
-                  }`}
-                >
-                  <span className={`transition-transform duration-200 ${favAnimating ? "scale-150" : "scale-100"}`}>
-                    {interaction.favorited ? "⭐" : "☆"}
-                  </span>
-                  {formatNumber(interaction.favorites)}
-                </button>
-              </div>
             </div>
+          </div>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-1.5 mb-3">
+            {skill.tags.map(tag => (
+              <span key={tag} className="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded">
+                #{tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Description */}
+          <p className="text-gray-600 text-sm leading-relaxed mb-4">{skill.longDescription}</p>
+
+          {/* Author */}
+          <div className="flex items-center gap-2 mb-6">
+            <img src={skill.authorAvatar} alt={skill.author} className="w-6 h-6 rounded-full" />
+            <span className="text-sm text-gray-500">
+              by <span className="font-medium text-gray-700">{skill.author}</span>
+            </span>
+            <span className="text-gray-300">·</span>
+            <span className="text-sm text-gray-500">更新于 {skill.updatedAt}</span>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              onClick={handleDownload}
+              className="flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-sm shadow-blue-200"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              一键下载
+            </button>
+
+            <button
+              onClick={handleLike}
+              className={`flex items-center gap-2 px-4 py-2.5 border rounded-xl text-sm font-medium transition-all ${
+                interaction.liked
+                  ? "border-red-200 bg-red-50 text-red-600"
+                  : "border-gray-200 text-gray-600 hover:border-red-200 hover:text-red-500"
+              }`}
+            >
+              <span className={`transition-transform duration-200 ${likeAnimating ? "scale-150" : "scale-100"}`}>
+                {interaction.liked ? "❤️" : "🤍"}
+              </span>
+              {formatNumber(interaction.likes)}
+            </button>
+
+            <button
+              onClick={handleFavorite}
+              className={`flex items-center gap-2 px-4 py-2.5 border rounded-xl text-sm font-medium transition-all ${
+                interaction.favorited
+                  ? "border-yellow-200 bg-yellow-50 text-yellow-600"
+                  : "border-gray-200 text-gray-600 hover:border-yellow-200 hover:text-yellow-500"
+              }`}
+            >
+              <span className={`transition-transform duration-200 ${favAnimating ? "scale-150" : "scale-100"}`}>
+                {interaction.favorited ? "⭐" : "☆"}
+              </span>
+              {formatNumber(interaction.favorites)}
+            </button>
           </div>
         </div>
 

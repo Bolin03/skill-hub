@@ -4,6 +4,7 @@
 import { useLocation } from "wouter";
 import SearchBar from "@/components/SearchBar";
 import { MOCK_SKILLS } from "@/lib/mockData";
+import { useAuth } from "@/contexts/AuthContext";
 
 const HERO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663606961907/68YoGpKzp6v5CcvrUggY9c/hero-bg-9VjW3E7CNUZgKzeipaYaGg.webp";
 const POPULAR_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663606961907/68YoGpKzp6v5CcvrUggY9c/popular-skills-card-GTAaN8TQA9oNe6WarYT6kh.webp";
@@ -18,8 +19,17 @@ const STATS = [
 
 export default function Home() {
   const [, navigate] = useLocation();
+  const { isLoggedIn, setShowLoginModal } = useAuth();
 
   const totalDownloads = MOCK_SKILLS.reduce((s, sk) => s + sk.downloads, 0);
+
+  const handlePublishClick = () => {
+    if (!isLoggedIn) {
+      setShowLoginModal(true);
+    } else {
+      navigate("/dashboard?tab=publish");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -134,7 +144,7 @@ export default function Home() {
 
           {/* Upload Skill Card */}
           <div
-            onClick={() => navigate("/upload")}
+            onClick={handlePublishClick}
             className="group relative bg-white border border-gray-100 rounded-2xl overflow-hidden cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
           >
             {/* Image */}
@@ -202,7 +212,8 @@ export default function Home() {
               <img
                 src={skill.coverImage}
                 alt={skill.name}
-                className="w-12 h-12 rounded-lg object-cover flex-shrink-0"
+                className="w-14 h-14 rounded-lg object-cover flex-shrink-0"
+                style={{ width: 56, height: 56, borderRadius: 8 }}
               />
               <div className="min-w-0">
                 <h3 className="text-sm font-semibold text-gray-900 truncate group-hover:text-blue-600 transition-colors">

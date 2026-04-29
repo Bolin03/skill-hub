@@ -14,7 +14,6 @@ import Home from "./pages/Home";
 import SearchPage from "./pages/SearchPage";
 import PopularPage from "./pages/PopularPage";
 import SkillDetailPage from "./pages/SkillDetailPage";
-import UploadPage from "./pages/UploadPage";
 import DashboardPage from "./pages/DashboardPage";
 
 function Router() {
@@ -27,7 +26,6 @@ function Router() {
           <Route path="/search" component={SearchPage} />
           <Route path="/popular" component={PopularPage} />
           <Route path="/skill/:id" component={SkillDetailPage} />
-          <Route path="/upload" component={UploadPage} />
           <Route path="/dashboard" component={DashboardPage} />
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />

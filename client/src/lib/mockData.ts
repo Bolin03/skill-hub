@@ -31,18 +31,18 @@ export interface Skill {
 }
 
 const COVER_IMAGES = [
-  "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=280&fit=crop",
-  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=280&fit=crop",
-  "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=280&fit=crop",
-  "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=400&h=280&fit=crop",
-  "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=280&fit=crop",
-  "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=400&h=280&fit=crop",
-  "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=280&fit=crop",
-  "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400&h=280&fit=crop",
-  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=280&fit=crop",
-  "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=400&h=280&fit=crop",
-  "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=280&fit=crop",
-  "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=400&h=280&fit=crop",
+  "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=112&h=112&fit=crop",
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=112&h=112&fit=crop",
+  "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=112&h=112&fit=crop",
+  "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=112&h=112&fit=crop",
+  "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=112&h=112&fit=crop",
+  "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=112&h=112&fit=crop",
+  "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=112&h=112&fit=crop",
+  "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=112&h=112&fit=crop",
+  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=112&h=112&fit=crop",
+  "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=112&h=112&fit=crop",
+  "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=112&h=112&fit=crop",
+  "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=112&h=112&fit=crop",
 ];
 
 export const MOCK_SKILLS: Skill[] = [

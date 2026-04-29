@@ -10,6 +10,14 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [, navigate] = useLocation();
 
+  const handlePublishClick = () => {
+    if (!isLoggedIn) {
+      setShowLoginModal(true);
+    } else {
+      navigate("/dashboard?tab=publish");
+    }
+  };
+
   return (
     <>
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
@@ -30,9 +38,9 @@ export default function Navbar() {
               <Link href="/popular" className="px-3 py-1.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors">
                 热门 Skills
               </Link>
-              <Link href="/upload" className="px-3 py-1.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors">
+              <button onClick={handlePublishClick} className="px-3 py-1.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors">
                 发布 Skill
-              </Link>
+              </button>
             </div>
 
             {/* Right: User */}

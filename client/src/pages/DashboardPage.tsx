@@ -1,7 +1,7 @@
 // Dashboard / Personal Center Page
 // Design: Left sidebar nav + right content area, clean and minimal
-import { useState, useMemo, useRef } from "react";
-import { useLocation } from "wouter";
+import { useState, useMemo, useRef, useEffect } from "react";
+import { useLocation, useSearch } from "wouter";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSkills } from "@/contexts/SkillContext";
 import SkillCard from "@/components/SkillCard";
@@ -18,8 +18,18 @@ export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState<Tab>("my-skills");
   const [searchQuery, setSearchQuery] = useState("");
   const [, navigate] = useLocation();
+  const search = useSearch();
   const { user, isLoggedIn, setShowLoginModal } = useAuth();
   const { skills } = useSkills();
+
+  // Read URL param ?tab=publish to auto-activate publish tab
+  useEffect(() => {
+    const params = new URLSearchParams(search);
+    const tab = params.get("tab");
+    if (tab === "publish" || tab === "my-skills" || tab === "favorites") {
+      setActiveTab(tab as Tab);
+    }
+  }, [search]);
 
   // All hooks must be called before any conditional returns
   const mySkills = useMemo(() => {
